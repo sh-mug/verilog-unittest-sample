@@ -1,0 +1,22 @@
+name: CI
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: hdlc/verilator
+
+    steps:
+      - name: Run apt update
+        run: apt update 2>/dev/null
+
+      - name: Run apt install prerequisites
+        run: apt install -y cmake ninja-build
+
+      - uses: actions/checkout@v3
+
+      - name: Build
+        run: cmake -S . -B build -G Ninja && ninja -C build
+          
+      - name: Run tests
+        run: build/test_all
