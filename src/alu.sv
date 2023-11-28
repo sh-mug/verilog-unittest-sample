@@ -1,8 +1,6 @@
 `timescale 1ns / 1ps
 
 module alu (
-    input rst_n,
-    input clk,
     input [2:0] inst,
     input [31:0] a,
     input [31:0] b,

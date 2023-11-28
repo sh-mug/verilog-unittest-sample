@@ -7,16 +7,9 @@
 #include <random>
 
 void ValuForTest::exec(const int &_inst, const int &_a, const int &_b) {
-    rst_n = 1;
-    clk = 0;
-
     inst = _inst;
     a = _a;
     b = _b;
-    eval();
-
-    // positive edge
-    clk = 1;
     eval();
 }
 
